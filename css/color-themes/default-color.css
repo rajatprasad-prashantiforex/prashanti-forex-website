@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* Prashanti Forex — Brand Color Theme (Aligned with PF Corporate Logo) */
+
+:root {
+  /* Midnight Navy — Extracted from PF Monogram */
+  --main-color: rgb(14, 36, 66);
+  --main-color-rgb: 14, 36, 66;
+
+  /* Metallic Gold — Extracted from PF Logo Swoosh */
+  --accent-color: rgb(198, 158, 96);
+  --accent-color-rgb: 198, 158, 96;
+}
