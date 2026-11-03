@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="/">
 <meta charset="utf-8">
-<title>Treasury Blog | Prashanti Forex</title>
+<title>Article Detail | Prashanti Forex</title>
 <!-- Stylesheets -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
@@ -21,14 +22,206 @@
 <!-- Prashanti Forex Premium Overrides -->
 <link href="css/prashanti-overrides.css" rel="stylesheet">
 
-
 <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 <link rel="icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<style>
+/* 🌟 Modern Article Details Styles */
+.article-detail-wrap {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 36px;
+    border: 1px solid #E8ECF3;
+    box-shadow: 0 4px 24px rgba(5, 8, 94, 0.06);
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .article-detail-wrap {
+        padding: 22px 18px;
+    }
+}
+
+.article-hero-media {
+    position: relative;
+    width: 100%;
+    max-height: 480px;
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: #F1F5F9;
+}
+
+.article-hero-media img {
+    width: 100%;
+    height: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+}
+
+.article-meta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 13.5px;
+    color: #64748B;
+    margin-bottom: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #EDF2F7;
+}
+
+.article-meta-row span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.article-meta-row i {
+    color: #0070E0;
+    font-size: 14px;
+}
+
+.article-main-heading {
+    font-size: 32px;
+    font-weight: 800;
+    color: #05085E;
+    line-height: 1.35;
+    margin-bottom: 24px;
+    letter-spacing: -0.3px;
+}
+
+@media (max-width: 768px) {
+    .article-main-heading {
+        font-size: 24px;
+    }
+}
+
+.article-body-content {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #334155;
+    margin-bottom: 35px;
+}
+
+.article-body-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.85;
+    color: #334155;
+}
+
+.article-body-content h2, 
+.article-body-content h3, 
+.article-body-content h4 {
+    color: #05085E;
+    font-weight: 700;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.article-body-content img {
+    max-width: 100%;
+    height: auto !important;
+    border-radius: 10px;
+    margin: 22px 0;
+}
+
+.article-body-content ul, 
+.article-body-content ol {
+    margin-bottom: 22px;
+    padding-left: 24px;
+}
+
+.article-body-content li {
+    margin-bottom: 8px;
+}
+
+.article-body-content blockquote {
+    border-left: 4px solid #0070E0;
+    padding: 16px 24px;
+    margin: 28px 0;
+    background: #F8FAFC;
+    border-radius: 0 12px 12px 0;
+    font-style: italic;
+    color: #1E293B;
+}
+
+.article-tags-share {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 1px solid #EDF2F7;
+    margin-top: 35px;
+}
+
+.article-tags-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.article-tag-badge {
+    background: #F1F5F9;
+    color: #05085E;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.article-tag-badge:hover {
+    background: #05085E;
+    color: #ffffff;
+}
+
+.article-share-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.article-share-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #F1F5F9;
+    color: #05085E;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.article-share-btn:hover {
+    background: #0070E0;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.detail-state-box {
+    text-align: center;
+    padding: 80px 20px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px dashed #D0D8E5;
+}
+</style>
 
 </head>
 
@@ -43,7 +236,6 @@
         <div class="layer layer-two"><span class="overlay"></span></div>        
         <div class="layer layer-three"><span class="overlay"></span></div>        
     </div>
-	<!-- Preloader End -->
  	
  	<!-- HEADER:START -->
 <header class="main-header">
@@ -180,67 +372,11 @@
 		</header>
 <!-- HEADER:END -->
 
-		<!-- Sidebar Cart Item -->
-		<div class="xs-sidebar-group info-group">
-			<div class="xs-overlay xs-bg-black"></div>
-			<div class="xs-sidebar-widget">
-				<div class="sidebar-widget-container">
-					<div class="widget-heading">
-						<a href="#" class="close-side-widget">
-							X
-						</a>
-					</div>
-					<div class="sidebar-textwidget">
-
-						<!-- Sidebar Info Content -->
-						<div class="sidebar-info-contents">
-							<div class="content-inner">
-								<div class="logo">
-									<a href="index.html"><img src="images/logo-white.png" alt="Prashanti Forex" /></a>
-								</div>
-								<div class="content-box">
-									<h5>About Prashanti Forex</h5>
-									<p class="text">We become your outsourced treasury department, helping exporters and
-										importers manage currency risk, optimise finance costs, and strengthen liquidity
-										with institutional rigor.</p>
-									<a href="contact.html" class="theme-btn btn-style-two">
-										<span class="btn-wrap">
-											<span class="text-one">Talk to an Expert</span>
-											<span class="text-two">Talk to an Expert</span>
-										</span>
-									</a>
-								</div>
-								<div class="contact-info">
-									<h5>Corporate Office</h5>
-									<ul class="list-style-one">
-										<li><span class="icon fa fa-location-arrow"></span>Yashvasin CHS, Plot 38,
-											Sector 27, Kharghar, Navi Mumbai 410210</li>
-										<li><span class="icon fa fa-phone"></span>+91 99300 93014</li>
-										<li><span class="icon fa fa-envelope"></span>rajatprasad@prashantiforex.com</li>
-										<li><span class="icon fa fa-clock-o"></span>Mon - Fri: 09:00 AM - 06:00 PM</li>
-									</ul>
-								</div>
-								<!-- Social Box -->
-								<ul class="social-box">
-									<li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>
-									<li><a href="https://www.twitter.com/" class="fa fa-twitter"></a></li>
-									<li><a href="https://dribbble.com/" class="fa fa-dribbble"></a></li>
-									<li><a href="https://www.linkedin.com/" class="fa fa-linkedin"></a></li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END sidebar widget item -->
-	
 	<!-- Page Title -->
     <section class="page-title">
 		<div class="auto-container">
             <div class="content">
-				<h2>Blog Details</h2>
+				<h2 id="page-banner-title">Article Insights</h2>
 			</div>
 		</div>
 	</section>
@@ -251,173 +387,67 @@
     	<div class="auto-container">
         	<div class="row clearfix">
 				
-				<!-- Content Side -->
+				<!-- Content Side (Single Post Body) -->
                 <div class="content-side col-lg-8 col-md-12 col-sm-12">
-                	<div class="blog-detail">
-						<div class="inner-box">
-							<div class="image">
-								<img src="images/resource/about-2.jpg" alt="Currency Movements and Export Profitability" />
-							</div>
-							<div class="lower-content">
-								<ul class="post-meta">
-									<li><span class="flaticon-user-3"></span> Rajat Prasad</li>
-									<li><span class="flaticon-calendar"></span> Dec 28, 2025</li>
-									<li><span class="flaticon-bubble-chat"></span> (04) Comments</li>
-								</ul>
-								<h3>How Currency Movements Directly Affect Export Profitability</h3>
-								<p>Prashanti Forex provides dedicated fractional treasury management and currency hedging advisory for growing businesses. </p>
-								<p>International market volatility requires rigorous benchmarking, strategic forward coverage, and continuous bank margin auditing.</p>
-								<p>By actively managing currency exposure, corporations protect their underlying operating margins and ensure consistent cash flow forecasting.</p>
-								<div class="two-column">
-									<div class="row clearfix">
-										<div class="column col-lg-6 col-md-6 col-sm-12">
-											<h4>Our Approach</h4>
-											<p>We work as an outsourced Chief Treasury Officer and dealing desk, providing transparent market rate discovery and disciplined risk management.</p>
-											<ul class="check-list">
-												<li>Live Interbank Margin Auditing</li>
-												<li>Rule-Based Hedging Frameworks</li>
-												<li>Trade Credit Cost Compression</li>
-											</ul>
-										</div>
-										<div class="column col-lg-6 col-md-6 col-sm-12">
-											<div class="image">
-												<img src="images/main-slider/image-2.jpg" alt="Live Treasury Dealing Room" />
-											</div>
-										</div>
-									</div>
-								</div>
-								<h4>What Is A Business Technology Roadmap?</h4>
-								<p>Unlike detailed blueprints that lay out all tasks, deadlines, bug reports, and more along the way, technology roadmaps are high-level visual summaries highlighting a company’s vision or plans.</p>
-								<p>In an Agile approach, a technology roadmap feeds the sprint and grooming processes, providing insight into how the product will travel from start to finish. It makes it easier for development teams to:</p>
-								<div class="gallery">
-									<div class="row clearfix">
-										<div class="col-lg-6 col-md-6 col-sm-6">
-											<div class="image">
-												<img src="images/resource/news-13.jpg" alt="" />
-											</div>
-										</div>
-										<div class="col-lg-6 col-md-6 col-sm-6">
-											<div class="image">
-												<img src="images/resource/news-14.jpg" alt="" />
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Post Share Options-->
-							<div class="post-share-options">
-								<div class="post-share-inner clearfix">
-									<div class="tags"><span class="tags">Tags:</span><a href="#">Business</a> <a href="#">Design </a><a href="#">apps</a> <a href="#">data</a></div>
-									<ul class="social-box">
-										<span class="share">Share Article:</span>
-										<li class="facebook"><a href="#"><span class="fa fa-facebook-square"></span></a></li>
-										<li class="twitter"><a href="#"><span class="fa fa-twitter-square"></span></a></li>
-										<li class="linkedin"><a href="#"><span class="fa fa-linkedin-square"></span></a></li>
-										<li class="pinterest"><a href="#"><span class="fa fa-pinterest"></span></a></li>
-									</ul>
-								</div>
-							</div>
-							<!-- End Post Share Options-->
-							
-							<!-- More Posts -->
-							<div class="more-posts">
-								<div class="clearfix">
-									<div class="prev-post pull-left">
-										<div class="post-title"><span class="fa fa-angle-double-left"></span> Previous Post</div>
-										<div class="post-inner">
-											<span class="image">
-												<a href="#"><img src="images/resource/prev-post.jpg" alt="" /></a>
-											</span>
-											<a href="#">Digital Marketing Agency <br> Pricing Guide.</a>
-										</div>
-									</div>
-									<div class="next-post pull-right">
-										<div class="post-title">Next Post <span class="fa fa-angle-double-right"></span></div>
-										<div class="post-inner">
-											<span class="image">
-												<a href="#"><img src="images/resource/next-post.jpg" alt="" /></a>
-											</span>
-											<a href="#">App Prototyping <br> Types, Example & Usages.</a>
-										</div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- Comments Area -->
-							<div class="comments-area">
-								<div class="group-title">
-									<h5>(04) Comment</h5>
-								</div>
-								
-								<div class="comment-box">
-									<div class="comment">
-										<div class="author-thumb"><img src="images/resource/author-9.jpg" alt=""></div>
-										<div class="comment-info clearfix"><strong>Kristin Watson</strong><div class="comment-time">MARCH 10, 2020</div></div>
-										<div class="text">Patient Comments are a collection of comments submitted by viewers in response to a question posed by a MedicineNet doctor.</div>
-										<a class="reply-btn flaticon-reply-all" href="#"></a>
-									</div>
-								</div>
-								
-								<div class="comment-box reply-comment">
-									<div class="comment">
-										<div class="author-thumb"><img src="images/resource/author-10.jpg" alt=""></div>
-										<div class="comment-info clearfix"><strong>Brooklyn Simmons</strong><div class="comment-time">MARCH 10, 2020</div></div>
-										<div class="text">Include anecdotal examples of your experience, or things you took notice of that you feel others would find useful.</div>
-										<a class="reply-btn flaticon-reply-all" href="#"></a>
-									</div>
-								</div>
-								
-							</div>
-							
-							<!-- Comment Form -->
-							<div class="comment-form">
-								<div class="group-title">
-									<h5>Leave a Reply</h5>
-									<div class="sub-text">Your email address will not be published. Required fields are marked *</div>
-								</div>
-								
-								<!--Comment Form-->
-								<form method="post" action="blog.html">
-									<div class="row clearfix">
-										
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="text" name="username" placeholder="Enter your Name" required>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="email" name="email" placeholder="Enter your mail" required>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="text" name="phone" placeholder="Enter your number" required>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12 form-group">
-											<input type="text" name="website" placeholder="Enter your website" required>
-										</div>
-										
-										<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-											<textarea class="" name="message" placeholder="Type your Comment"></textarea>
-										</div>
-										
-										<div class="col-lg-12 col-md-12 col-sm-12 form-group">
-											<button class="theme-btn btn-style-eleven">
-												<span class="btn-wrap">
-													<span class="text-one">Send Message</span>
-													<span class="text-two">Send Message</span>
-												</span>
-											</button>
-										</div>
-										
-									</div>
-								</form>
-									
-							</div>
-							<!--End Comment Form -->
-							
-						</div>
+					
+					<!-- Loading Placeholder -->
+					<div id="article-loader" class="detail-state-box">
+						<div class="wp-spinner" style="width: 42px; height: 42px; border: 3px solid #E2E8F0; border-top-color: #05085E; border-radius: 50%; animation: wpSpin 0.8s linear infinite; margin: 0 auto 16px;"></div>
+						<h4 style="color: #05085E; font-weight: 700; margin-bottom: 6px;">Loading Treasury Perspective...</h4>
+						<p style="color: #64748B; font-size: 14px; margin: 0;">Connecting to Prashanti Forex Treasury Desk</p>
+					</div>
+
+					<!-- Error Placeholder -->
+					<div id="article-error" class="detail-state-box" style="display: none;">
+						<h4 style="color: #DC2626; font-weight: 700; margin-bottom: 8px;">Article Not Found</h4>
+						<p style="color: #64748B; font-size: 15px; margin-bottom: 20px;">The requested article may have been unpublished or removed.</p>
+						<a href="blog.html" class="theme-btn btn-style-two">
+							<span class="btn-wrap"><span class="text-one">&larr; Back to All Articles</span><span class="text-two">&larr; Back to All Articles</span></span>
+						</a>
+					</div>
+
+					<!-- Main Article Content Wrapper -->
+                	<div class="article-detail-wrap" id="article-main-view" style="display: none;">
 						
+						<!-- Featured Hero Image -->
+						<div class="article-hero-media" id="article-hero-box">
+							<img id="post-featured-image" src="" alt="Featured Banner">
+						</div>
+
+						<!-- Meta Info Bar -->
+						<div class="article-meta-row">
+							<span><i class="fa fa-user-circle-o"></i> <strong id="post-author-name">Prashanti Forex</strong></span>
+							<span><i class="fa fa-calendar-o"></i> <span id="post-publish-date"></span></span>
+							<span><i class="fa fa-folder-open-o"></i> <span id="post-category-name">Treasury</span></span>
+						</div>
+
+						<!-- Title -->
+						<h1 class="article-main-heading" id="post-heading-title"></h1>
+
+						<!-- WordPress Rich HTML Content -->
+						<div class="article-body-content" id="post-rendered-content"></div>
+
+						<!-- Tags & Social Share Bar -->
+						<div class="article-tags-share">
+							<div class="article-tags-wrap" id="post-tags-container">
+								<span style="font-size: 13px; font-weight: 700; color: #05085E;"><i class="fa fa-tags"></i> Tags:</span>
+							</div>
+							<div class="article-share-links">
+								<span style="font-size: 13px; font-weight: 700; color: #64748B; margin-right: 6px;">Share:</span>
+								<a href="javascript:void(0)" onclick="shareOnTwitter()" class="article-share-btn" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+								<a href="javascript:void(0)" onclick="shareOnLinkedIn()" class="article-share-btn" title="Share on LinkedIn"><i class="fa fa-linkedin"></i></a>
+								<a href="javascript:void(0)" onclick="shareOnWhatsApp()" class="article-share-btn" title="Share on WhatsApp"><i class="fa fa-whatsapp"></i></a>
+								<a href="javascript:void(0)" onclick="copyArticleLink()" class="article-share-btn" title="Copy Link"><i class="fa fa-link"></i></a>
+							</div>
+						</div>
+
+						<!-- Back Navigation -->
+						<div style="margin-top: 35px;">
+							<a href="blog.html" class="theme-btn btn-style-two" style="padding: 10px 24px; font-size: 13px;">
+								<span class="btn-wrap"><span class="text-one">&larr; Back to Articles</span><span class="text-two">&larr; Back to Articles</span></span>
+							</a>
+						</div>
+
 					</div>
 				</div>
 				
@@ -425,34 +455,27 @@
                 <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
                 	<aside class="sidebar sticky-top">
 						
-						<!-- Search -->
+						<!-- Search Widget -->
 						<div class="sidebar-widget search-box">
-							<!-- Sidebar Title -->
 							<div class="sidebar-title">
-								<h4>Search Here</h4>
+								<h4>Search Articles</h4>
 							</div>
-							<form method="post" action="blog.html">
+							<form method="get" action="blog.html">
 								<div class="form-group">
-									<input type="search" name="search-field" value="" placeholder="Search articles..." required>
+									<input type="search" name="search" placeholder="Type keyword & press enter..." required>
 									<button type="submit"><span class="icon fa fa-search"></span></button>
 								</div>
 							</form>
 						</div>
 						
-						<!-- Categories Widget -->
+						<!-- Dynamic Categories Widget -->
 						<div class="sidebar-widget categories-widget">
 							<div class="widget-content">
-								<!-- Sidebar Title -->
 								<div class="sidebar-title">
 									<h4>Categories</h4>
 								</div>
-								<ul class="blog-cat">
-									<li class="active"><a href="#">Currency Risk &amp; Hedging <span>06</span></a></li>
-									<li><a href="#">Trade Finance &amp; LC <span>04</span></a></li>
-									<li><a href="#">Fractional Treasury <span>08</span></a></li>
-									<li><a href="#">Working Capital &amp; Liquidity <span>03</span></a></li>
-									<li><a href="#">FEMA &amp; Compliance <span>02</span></a></li>
-									<li><a href="#">Banking Negotiations <span>05</span></a></li>
+								<ul class="blog-cat" id="wp-sidebar-categories">
+									<li><a href="blog.html">All Topics</a></li>
 								</ul>
 							</div>
 						</div>
@@ -460,7 +483,6 @@
 						<!-- Treasury Services Widget -->
 						<div class="sidebar-widget pages-widget">
 							<div class="widget-content">
-								<!-- Sidebar Title -->
 								<div class="sidebar-title">
 									<h4>Treasury Services</h4>
 								</div>
@@ -475,59 +497,15 @@
 							</div>
 						</div>
 						
-						<!-- Post Widget -->
+						<!-- Dynamic Recent Posts Widget -->
 						<div class="sidebar-widget post-widget">
 							<div class="widget-content">
-								<!-- Sidebar Title -->
 								<div class="sidebar-title">
-									<h4>Recent Post</h4>
+									<h4>Recent Posts</h4>
 								</div>
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
-									<div class="title">15 Feb. 2026</div>
-									<h6><a href="news-detail.html">How Currency Movements Affect Export Profitability</a></h6>
+								<div id="wp-sidebar-recent-posts">
+									<p style="font-size: 13px; color: #888;">Loading recent articles...</p>
 								</div>
-
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></div>
-									<div class="title">28 Jan. 2026</div>
-									<h6><a href="news-detail.html">Improving Cost of Export &amp; Import Trade Finance</a></h6>
-								</div>
-								
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-3.jpg" alt=""></a></div>
-									<div class="title">10 Jan. 2026</div>
-									<h6><a href="news-detail.html">Why Liquidity Management Matters for Growth</a></h6>
-								</div>
-								
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-4.jpg" alt=""></a></div>
-									<div class="title">18 Dec. 2025</div>
-									<h6><a href="news-detail.html">Negotiating Bank Spreads on Cross-Border Remittances</a></h6>
-								</div>
-								
-							</div>
-						</div>
-						
-						<!-- Post Widget -->
-						<div class="sidebar-widget tags">
-							<div class="widget-content">
-								<!-- Sidebar Title -->
-								<div class="sidebar-title">
-									<h4>Tags</h4>
-								</div>
-								<ul class="tag-list clearfix">
-									<li><a href="#">landing </a></li>
-									<li><a href="#">Charity</a></li>
-									<li><a href="#">apps</a></li>
-									<li><a href="#">Education</a></li>
-									<li><a href="#">data</a></li>
-									<li><a href="#">book</a></li>
-									<li><a href="#">Design</a></li>
-									<li><a href="#">website</a></li>
-									<li><a href="#">landing page</a></li>
-									<li><a href="#">data</a></li>
-								</ul>
 							</div>
 						</div>
 						
@@ -538,8 +516,7 @@
 		</div>
 	</div>
 	
-	<!-- Footer Style Two / Style Two -->
-    <!-- FOOTER:START -->
+<!-- FOOTER:START -->
 <!-- Footer Style Two / Style Two -->
 <footer class="footer-style-two style-two">
     <div class="auto-container">
@@ -649,30 +626,8 @@
     </div>
 </footer>
 <!-- FOOTER:END -->
-	<!-- End Footer Style Two / Style Two -->
-	
-</div>
 
-<!-- Search Popup -->
-<div class="search-popup">
-	<div class="color-layer"></div>
-	<button class="close-search"><span class="fa fa-arrow-up"></span></button>
-	<form method="post" action="blog.html">
-		<div class="form-group">
-			<input type="search" name="search-field" value="" placeholder="Search Here" required="">
-			<button type="submit"><i class="fa fa-search"></i></button>
-		</div>
-	</form>
 </div>
-<!-- End Search Popup -->
-
-<!-- scrollToTop start -->
-<div class="progress-wrap active-progress">
-	<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-	<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;"></path>
-	</svg>
-</div>
-<!-- scrollToTop end -->
 
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>
@@ -688,15 +643,210 @@
 <script src="js/odometer.js"></script>
 <script src="js/mixitup.js"></script>
 <script src="js/backToTop.js"></script>
-<script src="js/TweenMax.min.js"></script>
 <script src="js/cursor-script.js"></script>
 <script src="js/nav-tool.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/script.js"></script>
+<script src="js/TweenMax.min.js"></script>
 <script src="js/color-settings.js"></script>
 
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+<script>
+    const WP_API_ROOT = "https://blogs.prashantiforex.co.in/wp-json/wp/v2";
+
+    function stripHtml(html) {
+        const tmp = document.createElement("DIV");
+        tmp.innerHTML = html || "";
+        return tmp.textContent || tmp.innerText || "";
+    }
+
+    function getPostFeaturedImage(post) {
+        return post._embedded?.['wp:featuredmedia']?.[0]?.source_url 
+            || post.featured_image_url 
+            || '';
+    }
+
+    function resolveArticleIdentifier() {
+        // 1. Query parameter (?slug=xyz or ?id=123)
+        const params = new URLSearchParams(window.location.search);
+        const querySlug = params.get("slug");
+        const queryId = params.get("id");
+
+        if (querySlug) return { type: 'slug', value: querySlug };
+        if (queryId) return { type: 'id', value: queryId };
+
+        // 2. SEO Path routing (/blogs/{slug})
+        const pathParts = window.location.pathname.split('/').filter(Boolean);
+        const blogsIdx = pathParts.indexOf('blogs');
+        if (blogsIdx !== -1 && pathParts[blogsIdx + 1]) {
+            const rawSlug = pathParts[blogsIdx + 1].replace(/\.html$/i, '');
+            return { type: 'slug', value: rawSlug };
+        }
+
+        return null;
+    }
+
+    async function loadSingleWordPressPost() {
+        const identifier = resolveArticleIdentifier();
+        const loader = document.getElementById("article-loader");
+        const errorBox = document.getElementById("article-error");
+        const mainView = document.getElementById("article-main-view");
+
+        if (!identifier || !identifier.value) {
+            loader.style.display = "none";
+            errorBox.style.display = "block";
+            return;
+        }
+
+        try {
+            let endpoint = "";
+            if (identifier.type === 'id') {
+                endpoint = `${WP_API_ROOT}/posts/${identifier.value}?_embed`;
+            } else {
+                endpoint = `${WP_API_ROOT}/posts?slug=${encodeURIComponent(identifier.value)}&_embed`;
+            }
+
+            const res = await fetch(endpoint);
+            if (!res.ok) throw new Error("Post fetch network error");
+
+            let post = await res.json();
+            if (Array.isArray(post)) {
+                if (post.length === 0) throw new Error("Post with slug not found");
+                post = post[0];
+            }
+
+            // 1. Title & Meta
+            const rawTitle = stripHtml(post.title?.rendered || "Article Detail");
+            document.title = `${rawTitle} | Prashanti Forex`;
+            const bannerTitle = document.getElementById("page-banner-title");
+            if (bannerTitle) bannerTitle.textContent = rawTitle;
+
+            // 2. Heading & Content
+            document.getElementById("post-heading-title").innerHTML = post.title?.rendered || "";
+            document.getElementById("post-rendered-content").innerHTML = post.content?.rendered || "";
+
+            // 3. Featured Hero Image
+            const heroBox = document.getElementById("article-hero-box");
+            const heroImg = document.getElementById("post-featured-image");
+            const featuredImgUrl = getPostFeaturedImage(post);
+
+            if (featuredImgUrl) {
+                heroImg.src = featuredImgUrl;
+                heroImg.alt = rawTitle;
+                heroBox.style.display = "block";
+            } else {
+                heroBox.style.display = "none";
+            }
+
+            // 4. Meta Details
+            const author = post._embedded?.author?.[0]?.name || "Prashanti Forex";
+            document.getElementById("post-author-name").textContent = author;
+
+            const postDate = new Date(post.date).toLocaleDateString("en-IN", {
+                day: "numeric",
+                month: "long",
+                year: "numeric"
+            });
+            document.getElementById("post-publish-date").textContent = postDate;
+
+            const category = post._embedded?.['wp:term']?.[0]?.[0]?.name || "Treasury Perspective";
+            document.getElementById("post-category-name").textContent = category;
+
+            // 5. Tags
+            const tagsList = post._embedded?.['wp:term']?.[1] || [];
+            const tagsContainer = document.getElementById("post-tags-container");
+            if (tagsList.length > 0) {
+                let tagsHtml = `<span style="font-size: 13px; font-weight: 700; color: #05085E;"><i class="fa fa-tags"></i> Tags:</span>`;
+                tagsList.forEach(t => {
+                    tagsHtml += `<a href="blog.html?search=${encodeURIComponent(t.name)}" class="article-tag-badge">${t.name}</a>`;
+                });
+                tagsContainer.innerHTML = tagsHtml;
+            } else {
+                tagsContainer.innerHTML = `<a href="blog.html" class="article-tag-badge">#Treasury</a><a href="blog.html" class="article-tag-badge">#Forex</a>`;
+            }
+
+            loader.style.display = "none";
+            mainView.style.display = "block";
+
+        } catch (err) {
+            console.error("Single Post Fetch Error:", err);
+            loader.style.display = "none";
+            errorBox.style.display = "block";
+        }
+    }
+
+    async function loadSidebarCategories() {
+        const catList = document.getElementById("wp-sidebar-categories");
+        try {
+            const res = await fetch(`${WP_API_ROOT}/categories?per_page=8&hide_empty=true`);
+            if (!res.ok) return;
+            const categories = await res.json();
+            if (categories && categories.length > 0) {
+                let html = `<li><a href="blog.html">All Topics</a></li>`;
+                categories.forEach(cat => {
+                    html += `<li><a href="blog.html?category=${cat.id}">${cat.name} <span>(${cat.count})</span></a></li>`;
+                });
+                catList.innerHTML = html;
+            }
+        } catch (e) {}
+    }
+
+    async function loadSidebarRecentPosts() {
+        const recentBox = document.getElementById("wp-sidebar-recent-posts");
+        try {
+            const res = await fetch(`${WP_API_ROOT}/posts?_embed&per_page=4`);
+            if (!res.ok) return;
+            const recentPosts = await res.json();
+            if (recentPosts && recentPosts.length > 0) {
+                let html = "";
+                recentPosts.forEach(p => {
+                    const thumb = getPostFeaturedImage(p) || 'images/resource/about-2.jpg';
+                    const pDate = new Date(p.date).toLocaleDateString("en-IN", {
+                        day: "numeric",
+                        month: "short",
+                        year: "numeric"
+                    });
+                    const pTitle = p.title?.rendered || "Treasury Perspective";
+                    const cleanSlug = p.slug || p.id;
+                    const pUrl = `blogs/${cleanSlug}`;
+
+                    html += `
+                        <div class="post">
+                            <div class="thumb">
+                                <a href="${pUrl}"><img src="${thumb}" alt="${stripHtml(pTitle)}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px;"></a>
+                            </div>
+                            <div class="title">${pDate}</div>
+                            <h6><a href="${pUrl}">${pTitle}</a></h6>
+                        </div>
+                    `;
+                });
+                recentBox.innerHTML = html;
+            }
+        } catch (e) {}
+    }
+
+    function shareOnTwitter() {
+        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(document.title)}`, '_blank');
+    }
+    function shareOnLinkedIn() {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+    }
+    function shareOnWhatsApp() {
+        window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(document.title + ' ' + window.location.href)}`, '_blank');
+    }
+    function copyArticleLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            alert("Article link copied to clipboard!");
+        }).catch(() => {
+            prompt("Copy this URL:", window.location.href);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        loadSingleWordPressPost();
+        loadSidebarCategories();
+        loadSidebarRecentPosts();
+    });
+</script>
 
 </body>
 </html>

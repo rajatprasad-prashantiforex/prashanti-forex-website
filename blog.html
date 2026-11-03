@@ -1,603 +1,1058 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>Treasury Blog &amp; Articles | Prashanti Forex</title>
-<!-- Stylesheets -->
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <title>Treasury Blog &amp; Insights | Prashanti Forex</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
 
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-<!-- Color Switcher Mockup -->
-<link href="css/color-switcher-design.css" rel="stylesheet">
+    <!-- Color Switcher Mockup -->
+    <link href="css/color-switcher-design.css" rel="stylesheet" />
 
-<!-- Color Themes -->
-<link id="theme-color-file" href="css/color-themes/default-color.css" rel="stylesheet">
-<!-- Prashanti Forex Premium Overrides -->
-<link href="css/prashanti-overrides.css" rel="stylesheet">
+    <!-- Color Themes -->
+    <link
+      id="theme-color-file"
+      href="css/color-themes/default-color.css"
+      rel="stylesheet"
+    />
+    <!-- Prashanti Forex Premium Overrides -->
+    <link href="css/prashanti-overrides.css" rel="stylesheet" />
 
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="images/favicon.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 
-<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
-<link rel="icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
 
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <style>
+      .wp-blog-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 40px;
+      }
 
-</head>
+      @media (max-width: 768px) {
+        .wp-blog-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+      }
 
-<body>
-<div class="cursor"></div>
-<div class="page-wrapper">
- 	
-    <!-- Preloader -->
-    <div class="loader-wrap">
-        <div class="preloader"><div class="preloader-close">Preloader Close</div></div>
+      .wp-blog-card {
+        background: #ffffff;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #e8ecf3;
+        box-shadow: 0 4px 20px rgba(5, 8, 94, 0.05);
+        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .wp-blog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 36px rgba(5, 8, 94, 0.12);
+        border-color: #d1dbe8;
+      }
+
+      .wp-card-thumb-link {
+        display: block;
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+        background: #f1f4f9;
+      }
+
+      .wp-card-thumb-link img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+
+      .wp-blog-card:hover .wp-card-thumb-link img {
+        transform: scale(1.06);
+      }
+
+      .wp-card-badge {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: #05085e;
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 5px 12px;
+        border-radius: 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        box-shadow: 0 4px 10px rgba(5, 8, 94, 0.25);
+        z-index: 2;
+      }
+
+      .wp-card-body {
+        padding: 24px 22px 20px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .wp-card-meta {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 12.5px;
+        color: #64748b;
+        margin-bottom: 12px;
+      }
+
+      .wp-card-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .wp-card-meta i {
+        color: #0070e0;
+        font-size: 13px;
+      }
+
+      .wp-card-title {
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 1.42;
+        color: #0f172a;
+        margin-bottom: 12px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: 54px;
+      }
+
+      .wp-card-title a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 0.25s ease;
+      }
+
+      .wp-card-title a:hover {
+        color: #0070e0;
+      }
+
+      .wp-card-excerpt {
+        font-size: 14px;
+        color: #475569;
+        line-height: 1.65;
+        margin-bottom: 20px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        flex-grow: 1;
+      }
+
+      .wp-card-footer {
+        border-top: 1px solid #edf2f7;
+        padding-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .wp-read-more-btn {
+        color: #05085e;
+        font-size: 13.5px;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.25s ease;
+      }
+
+      .wp-read-more-btn:hover {
+        color: #0070e0;
+        gap: 10px;
+      }
+
+      .wp-state-box {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 60px 20px;
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1px dashed #d0d8e5;
+      }
+
+      .wp-spinner {
+        width: 38px;
+        height: 38px;
+        border: 3px solid #e2e8f0;
+        border-top-color: #05085e;
+        border-radius: 50%;
+        animation: wpSpin 0.8s linear infinite;
+        margin: 0 auto 16px;
+      }
+
+      @keyframes wpSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="cursor"></div>
+    <div class="page-wrapper">
+      <!-- Preloader -->
+      <div class="loader-wrap">
+        <div class="preloader">
+          <div class="preloader-close">Preloader Close</div>
+        </div>
         <div class="layer layer-one"><span class="overlay"></span></div>
-        <div class="layer layer-two"><span class="overlay"></span></div>        
-        <div class="layer layer-three"><span class="overlay"></span></div>        
-    </div>
- 	
- 	<!-- HEADER:START -->
-<header class="main-header">
+        <div class="layer layer-two"><span class="overlay"></span></div>
+        <div class="layer layer-three"><span class="overlay"></span></div>
+      </div>
 
-			<!-- Header Lower -->
-			<div class="header-lower">
-
-				<div class="auto-container">
-					<div class="inner-container d-flex justify-content-between align-items-center">
-
-						<div class="logo-box">
-							<div class="logo"><a href="index.html"><img src="images/logo.png" alt="" title=""></a></div>
-						</div>
-						<div class="nav-outer clearfix">
-
-							<!-- Mobile Navigation Toggler -->
-							<div class="mobile-nav-toggler" aria-label="Toggle Mobile Menu"><span class="mobile-hamburger-icon"><span></span><span></span><span></span></span></div>
-							<!-- Main Menu -->
-							<nav class="main-menu show navbar-expand-md">
-								<div class="navbar-header">
-									<button class="navbar-toggler" type="button"    data-toggle="collapse"
-										data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-										aria-expanded="false" aria-label="Toggle navigation">
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-										<span class="icon-bar"></span>
-									</button>
-								</div>
-
-								<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
-									<ul class="navigation clearfix">
-										<li ><a href="index.html">Home</a></li>
-										<li><a href="about.html">About Us</a></li>
-										<li class="dropdown"><a href="services.html">Services</a>
-											<ul>
-												<li><a href="services.html">All Treasury Services</a></li>
-												<li><a href="service-fractional-treasury.html">Fractional Treasury
-														Solutions</a></li>
-												<li><a href="service-currency-risk.html">Currency Risk Management</a>
-												</li>
-												<li><a href="service-trade-finance.html">Trade Finance Optimisation</a>
-												</li>
-												<li><a href="service-liquidity-management.html">Liquidity &amp; Working
-														Capital</a></li>
-												<li><a href="service-treasury-advisory.html">Treasury Advisory &amp;
-														Policy</a></li>
-												<li><a href="service-corporate-training.html">Corporate Market
-														Training</a></li>
-											</ul>
-										</li>
-										<li><a href="team.html">Leadership</a></li>
-										<!-- <li><a href="price.html">Engagement Models</a></li> -->
-										<li class="current"><a href="blog.html">Blog</a></li>
-										<li><a href="contact.html">Contact Us</a></li>
-									</ul>
-								</div>
-
-							</nav>
-							<!-- Main Menu End-->
-						</div>
-
-						<!-- Outer Box -->
-						<div class="outer-box clearfix">
-
-							<!-- Search Box -->
-							<div class="search-box-outer">
-								<div class="search-box-btn"><span class="flaticon-search-1"></span></div>
-							</div>
-
-							<!-- Hamburger Nav Btn -->
-							<div class="nav-btn navSidebar-button" title="Quick Navigation & Contact" aria-label="Toggle Navigation Menu">
-								<span class="hamburger-icon-wrapper">
-									<span class="hamburger-bar"></span>
-									<span class="hamburger-bar"></span>
-									<span class="hamburger-bar"></span>
-								</span>
-							</div>
-						</div>
-						<!-- End Outer Box -->
-
-					</div>
-
-				</div>
-			</div>
-			<!-- End Header Lower -->
-
-			<!-- Sticky Header  -->
-			<div class="sticky-header">
-				<div class="auto-container">
-					<div class="inner-container d-flex justify-content-between align-items-center">
-						<!-- Logo -->
-						<div class="logo">
-							<a href="index.html" title=""><img src="images/logo-small.png" alt="" title=""></a>
-						</div>
-
-						<div>
-							<!-- Main Menu -->
-							<nav class="main-menu">
-								<!--Keep This Empty / Menu will come through Javascript-->
-							</nav>
-							<!-- Main Menu End-->
-
-							<!-- Mobile Navigation Toggler -->
-							<div class="mobile-nav-toggler" aria-label="Toggle Mobile Menu"><span class="mobile-hamburger-icon"><span></span><span></span><span></span></span></div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-			<!-- End Sticky Menu -->
-
-			<!-- Mobile Menu  -->
-			<div class="mobile-menu">
-				<div class="menu-backdrop"></div>
-				<div class="close-btn"><span class="icon flaticon-multiply"></span></div>
-				<nav class="menu-box">
-					<div class="nav-logo"><a href="index.html"><img src="images/mobile-logo.png" alt="Prashanti Forex"
-								title=""></a></div>
-					<!-- Search -->
-					<div class="search-box">
-						<form method="post" action="contact.html">
-							<div class="form-group">
-								<input type="search" name="search-field" value="" placeholder="SEARCH HERE" required>
-								<button type="submit"><span class="icon flaticon-search-1"></span></button>
-							</div>
-						</form>
-					</div>
-					<div class="menu-outer">
-						<!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-				</nav>
-			</div>
-			<!-- End Mobile Menu -->
-
-		</header>
-<!-- HEADER:END -->
-
-		<!-- Sidebar Cart Item -->
-		<div class="xs-sidebar-group info-group">
-			<div class="xs-overlay xs-bg-black"></div>
-			<div class="xs-sidebar-widget">
-				<div class="sidebar-widget-container">
-					<div class="widget-heading">
-						<a href="#" class="close-side-widget">
-							X
-						</a>
-					</div>
-					<div class="sidebar-textwidget">
-
-						<!-- Sidebar Info Content -->
-						<div class="sidebar-info-contents">
-							<div class="content-inner">
-								<div class="logo">
-									<a href="index.html"><img src="images/logo-white.png" alt="Prashanti Forex" /></a>
-								</div>
-								<div class="content-box">
-									<h5>About Prashanti Forex</h5>
-									<p class="text">We become your outsourced treasury department, helping exporters and
-										importers manage currency risk, optimise finance costs, and strengthen liquidity
-										with institutional rigor.</p>
-									<a href="contact.html" class="theme-btn btn-style-two">
-										<span class="btn-wrap">
-											<span class="text-one">Talk to an Expert</span>
-											<span class="text-two">Talk to an Expert</span>
-										</span>
-									</a>
-								</div>
-								<div class="contact-info">
-									<h5>Corporate Office</h5>
-									<ul class="list-style-one">
-										<li><span class="icon fa fa-location-arrow"></span>Yashvasin CHS, Plot 38,
-											Sector 27, Kharghar, Navi Mumbai 410210</li>
-										<li><span class="icon fa fa-phone"></span>+91 99300 93014</li>
-										<li><span class="icon fa fa-envelope"></span>rajat.prasad@prashantiforex.co.in</li>
-										<li><span class="icon fa fa-clock-o"></span>Mon - Fri: 09:00 AM - 06:00 PM</li>
-									</ul>
-								</div>
-								<!-- Social Box -->
-								<ul class="social-box">
-									<li><a href="https://www.facebook.com/" class="fa fa-facebook-f"></a></li>
-									<li><a href="https://www.twitter.com/" class="fa fa-twitter"></a></li>
-									<li><a href="https://dribbble.com/" class="fa fa-dribbble"></a></li>
-									<li><a href="https://www.linkedin.com/" class="fa fa-linkedin"></a></li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END sidebar widget item -->
-	
-	<!-- Page Title -->
-    <section class="page-title">
-		<div class="auto-container">
-            <div class="content">
-				<h2>Blog</h2>
-			</div>
-		</div>
-	</section>
-	<!-- End Page Title -->
-	
-	<!-- Sidebar Page Container -->
-    <div class="sidebar-page-container">
-    	<div class="auto-container">
-        	<div class="row clearfix">
-				
-				<!-- Content Side -->
-                <div class="content-side col-lg-8 col-md-12 col-sm-12">
-                	<div class="blog-classic">
-						
-						<!-- News Block Five -->
-						<div class="news-block-five">
-							<div class="inner-box">
-								<div class="image">
-									<a href="news-detail.html"><img src="images/resource/about-2.jpg" alt="Currency Movements and Export Profitability" /></a>
-								</div>
-								<div class="lower-content">
-									<ul class="post-meta">
-										<li><span class="flaticon-user-3"></span> Rajat Prasad</li>
-										<li><span class="flaticon-calendar"></span> Dec 28, 2025</li>
-										<li><span class="flaticon-bubble-chat"></span> (04) Comments</li>
-									</ul>
-									<h3><a href="news-detail.html">How Currency Movements Directly Affect Export Profitability</a></h3>
-									<div class="text">Prashanti Forex provides dedicated fractional treasury management and currency hedging advisory for growing businesses. </div>
-									<a class="read-more" href="news-detail.html">Read More</a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- News Block Five -->
-						<div class="news-block-five">
-							<div class="inner-box">
-								<div class="image">
-									<a href="news-detail.html"><img src="images/main-slider/image-3.jpg" alt="Improving Trade Finance Costs" /></a>
-								</div>
-								<div class="lower-content">
-									<ul class="post-meta">
-										<li><span class="flaticon-user-3"></span> Rajat Prasad</li>
-										<li><span class="flaticon-calendar"></span> Dec 28, 2025</li>
-										<li><span class="flaticon-bubble-chat"></span> (04) Comments</li>
-									</ul>
-									<h3><a href="news-detail.html">Ways Businesses Can Improve the Cost of Export and Import Trade Finance</a></h3>
-									<div class="text">Prashanti Forex provides dedicated fractional treasury management and currency hedging advisory for growing businesses. </div>
-									<a class="read-more" href="news-detail.html">Read More</a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- News Block Five -->
-						<div class="news-block-five">
-							<div class="inner-box">
-								<div class="image">
-									<a href="news-detail.html"><img src="images/main-slider/image-2.jpg" alt="Why Liquidity Management Matters" /></a>
-								</div>
-								<div class="lower-content">
-									<ul class="post-meta">
-										<li><span class="flaticon-user-3"></span> Rajat Prasad</li>
-										<li><span class="flaticon-calendar"></span> Dec 28, 2025</li>
-										<li><span class="flaticon-bubble-chat"></span> (04) Comments</li>
-									</ul>
-									<h3><a href="news-detail.html">Why Liquidity Management Matters as Your Business Grows Beyond &#8377;100 Cr</a></h3>
-									<div class="text">Prashanti Forex provides dedicated fractional treasury management and currency hedging advisory for growing businesses. </div>
-									<a class="read-more" href="news-detail.html">Read More</a>
-								</div>
-							</div>
-						</div>
-						
-						<!-- Styled Pagination -->
-						<ul class="styled-pagination clearfix">
-							<li class="next"><a href="#"><span class="flaticon-left-arrow"></span></a></li>
-							<li><a href="#" class="active">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li class="next"><a href="#"><span class="flaticon-right-arrow"></span></a></li>
-						</ul>
-						<!-- End Styled Pagination -->
-						
-					</div>
-				</div>
-				
-				<!-- Sidebar Side -->
-                <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
-                	<aside class="sidebar sticky-top">
-						
-						<!-- Search -->
-						<div class="sidebar-widget search-box">
-							<!-- Sidebar Title -->
-							<div class="sidebar-title">
-								<h4>Search Here</h4>
-							</div>
-							<form method="post" action="blog.html">
-								<div class="form-group">
-									<input type="search" name="search-field" value="" placeholder="Search articles..." required>
-									<button type="submit"><span class="icon fa fa-search"></span></button>
-								</div>
-							</form>
-						</div>
-						
-						<!-- Categories Widget -->
-						<div class="sidebar-widget categories-widget">
-							<div class="widget-content">
-								<!-- Sidebar Title -->
-								<div class="sidebar-title">
-									<h4>Categories</h4>
-								</div>
-								<ul class="blog-cat">
-									<li class="active"><a href="#">Currency Risk &amp; Hedging <span>06</span></a></li>
-									<li><a href="#">Trade Finance &amp; LC <span>04</span></a></li>
-									<li><a href="#">Fractional Treasury <span>08</span></a></li>
-									<li><a href="#">Working Capital &amp; Liquidity <span>03</span></a></li>
-									<li><a href="#">FEMA &amp; Compliance <span>02</span></a></li>
-									<li><a href="#">Banking Negotiations <span>05</span></a></li>
-								</ul>
-							</div>
-						</div>
-						
-						<!-- Treasury Services Widget -->
-						<div class="sidebar-widget pages-widget">
-							<div class="widget-content">
-								<!-- Sidebar Title -->
-								<div class="sidebar-title">
-									<h4>Treasury Services</h4>
-								</div>
-								<ul class="pages-list">
-									<li><a href="service-fractional-treasury.html">Fractional Treasury</a></li>
-									<li><a href="service-currency-risk.html">Currency Risk Management</a></li>
-									<li><a href="service-trade-finance.html">Trade Finance Optimisation</a></li>
-									<li><a href="service-liquidity-management.html">Liquidity Management</a></li>
-									<li><a href="service-treasury-advisory.html">Treasury Advisory</a></li>
-									<li><a href="service-corporate-training.html">Corporate FX Training</a></li>
-								</ul>
-							</div>
-						</div>
-						
-						<!-- Post Widget -->
-						<div class="sidebar-widget post-widget">
-							<div class="widget-content">
-								<!-- Sidebar Title -->
-								<div class="sidebar-title">
-									<h4>Recent Post</h4>
-								</div>
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
-									<div class="title">15 Feb. 2026</div>
-									<h6><a href="news-detail.html">How Currency Movements Affect Export Profitability</a></h6>
-								</div>
-
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></div>
-									<div class="title">28 Jan. 2026</div>
-									<h6><a href="news-detail.html">Improving Cost of Export &amp; Import Trade Finance</a></h6>
-								</div>
-								
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-3.jpg" alt=""></a></div>
-									<div class="title">10 Jan. 2026</div>
-									<h6><a href="news-detail.html">Why Liquidity Management Matters for Growth</a></h6>
-								</div>
-								
-								<div class="post">
-									<div class="thumb"><a href="news-detail.html"><img src="images/resource/post-thumb-4.jpg" alt=""></a></div>
-									<div class="title">18 Dec. 2025</div>
-									<h6><a href="news-detail.html">Negotiating Bank Spreads on Cross-Border Remittances</a></h6>
-								</div>
-								
-							</div>
-						</div>
-						
-						<!-- Post Widget -->
-						<div class="sidebar-widget tags">
-							<div class="widget-content">
-								<!-- Sidebar Title -->
-								<div class="sidebar-title">
-									<h4>Tags</h4>
-								</div>
-								<ul class="tag-list clearfix">
-									<li><a href="#">Forex</a></li>
-									<li><a href="#">Hedging</a></li>
-									<li><a href="#">Trade Finance</a></li>
-									<li><a href="#">LC Spreads</a></li>
-									<li><a href="#">Working Capital</a></li>
-									<li><a href="#">FEMA</a></li>
-									<li><a href="#">RBI Policy</a></li>
-									<li><a href="#">Treasury Desk</a></li>
-								</ul>
-							</div>
-						</div>
-						
-					</aside>
-				</div>
-				
-			</div>
-		</div>
-	</div>
-	
-	<!-- Footer Style Two / Style Two -->
-    <!-- FOOTER:START -->
-<!-- Footer Style Two / Style Two -->
-<footer class="footer-style-two style-two">
-    <div class="auto-container">
-        <!-- Widgets Section -->
-        <div class="widgets-section">
-            <div class="row clearfix">
-                
-                <!-- Column -->
-                <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                    <div class="row clearfix">
-                        
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget logo-widget">
-                                <div class="logo">
-                                    <a href="index.html"><img src="images/logo-white.png" alt="Prashanti Forex" /></a>
-                                </div>
-                                <div class="text">Your dedicated outsourced treasury department. We help exporters and importers manage currency risk, optimise trade finance costs, and strengthen liquidity.</div>
-                                <!-- Social Box -->
-                               <ul class="social-box">
-								<li><a target="_blank" href="https://www.facebook.com/PrashantiForex/" class="fa fa-facebook-f"></a></li>
-								<li><a target="_blank" href="https://www.linkedin.com/company/prashanti-forex/" class="fa fa-linkedin"></a></li>
-								<li><a target="_blank" href="https://www.instagram.com/prashanti_forex" class="fa fa-instagram"></a></li>
-								<li><a target="_blank" href="https://www.youtube.com/@prashantiforex" class="fa fa-youtube-play"></a></li>
-							</ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget">
-                                <h6>Quick Links</h6>
-                                <ul class="page-list">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="services.html">All Services</a></li>
-                                    <li><a href="team.html">Leadership</a></li>
-                                    <!-- <li><a href="price.html">Engagement Models</a></li> -->
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                    </div>
+      <!-- HEADER:START -->
+      <header class="main-header">
+        <!-- Header Lower -->
+        <div class="header-lower">
+          <div class="auto-container">
+            <div
+              class="inner-container d-flex justify-content-between align-items-center"
+            >
+              <div class="logo-box">
+                <div class="logo">
+                  <a href="index.html"
+                    ><img src="images/logo.png" alt="" title=""
+                  /></a>
                 </div>
-                
-                <!-- Column -->
-                <div class="big-column col-lg-6 col-md-12 col-sm-12">
-                    <div class="row clearfix">
-                    
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget links-widget">
-                                <h6>Treasury Practice</h6>
-                                <ul class="page-list">
-                                    <li><a href="service-fractional-treasury.html">Fractional Treasury</a></li>
-                                    <li><a href="service-currency-risk.html">Currency Risk Management</a></li>
-                                    <li><a href="service-trade-finance.html">Trade Finance Optimisation</a></li>
-                                    <li><a href="service-liquidity-management.html">Liquidity Management</a></li>
-                                    <li><a href="service-treasury-advisory.html">Treasury Advisory</a></li>
-                                    <li><a href="service-corporate-training.html">Corporate Market Training</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Footer Column -->
-                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
-                            <div class="footer-widget newslatter-widget">
-                                <h6>Subscribe Newsletter</h6>
-                                <div class="text">Subscribe to our newsletter for periodic market perspectives on foreign exchange, trade finance, and corporate liquidity.</div>
-                                <!-- Subscribe Form -->
-                                <div class="subscribe-form-two">
-                                    <form method="post" action="contact.html">
-                                        <div class="form-group">
-                                            <input type="email" name="email" value="" placeholder="Enter your business email" required>
-                                            <button type="submit" class="submit-btn"><span class="icon flaticon-send"></span></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    </div>
+              </div>
+              <div class="nav-outer clearfix">
+                <!-- Mobile Navigation Toggler -->
+                <div class="mobile-nav-toggler" aria-label="Toggle Mobile Menu">
+                  <span class="mobile-hamburger-icon"
+                    ><span></span><span></span><span></span
+                  ></span>
                 </div>
-                
-            </div>
-        </div>
-        
-        <!-- Footer Bottom -->
-        <div class="footer-bottom">
-            <div class="row clearfix">
-                <!-- Column -->
-                <div class="column col-lg-6 col-md-12 col-sm-12">
-                    <div class="copyright">&copy; 2026 <a href="index.html">Prashanti Forex</a>. All Rights Reserved. Fractional Treasury Solutions.</div>
-                </div>
-                <!-- Column -->
-                <div class="column col-lg-6 col-md-12 col-sm-12">
-                    <ul class="pages-nav">
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms &amp; Conditions</a></li>
-                        <li><a href="disclaimer.html">Treasury Disclaimer</a></li>
+                <!-- Main Menu -->
+                <nav class="main-menu show navbar-expand-md">
+                  <div class="navbar-header">
+                    <button
+                      class="navbar-toggler"
+                      type="button"
+                      data-toggle="collapse"
+                      data-target="#navbarSupportedContent"
+                      aria-controls="navbarSupportedContent"
+                      aria-expanded="false"
+                      aria-label="Toggle navigation"
+                    >
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                  </div>
+
+                  <div
+                    class="navbar-collapse collapse clearfix"
+                    id="navbarSupportedContent"
+                  >
+                    <ul class="navigation clearfix">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li class="dropdown">
+                        <a href="services.html">Services</a>
+                        <ul>
+                          <li>
+                            <a href="services.html">All Treasury Services</a>
+                          </li>
+                          <li>
+                            <a href="service-fractional-treasury.html"
+                              >Fractional Treasury Solutions</a
+                            >
+                          </li>
+                          <li>
+                            <a href="service-currency-risk.html"
+                              >Currency Risk Management</a
+                            >
+                          </li>
+                          <li>
+                            <a href="service-trade-finance.html"
+                              >Trade Finance Optimisation</a
+                            >
+                          </li>
+                          <li>
+                            <a href="service-liquidity-management.html"
+                              >Liquidity &amp; Working Capital</a
+                            >
+                          </li>
+                          <li>
+                            <a href="service-treasury-advisory.html"
+                              >Treasury Advisory &amp; Policy</a
+                            >
+                          </li>
+                          <li>
+                            <a href="service-corporate-training.html"
+                              >Corporate Market Training</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="team.html">Leadership</a></li>
+                      <!-- <li><a href="price.html">Engagement Models</a></li> -->
+                      <li class="current"><a href="blog.html">Blog</a></li>
+                      <li><a href="contact.html">Contact Us</a></li>
                     </ul>
+                  </div>
+                </nav>
+                <!-- Main Menu End-->
+              </div>
+
+              <!-- Outer Box -->
+              <div class="outer-box clearfix">
+                <!-- Search Box -->
+                <div class="search-box-outer">
+                  <div class="search-box-btn">
+                    <span class="flaticon-search-1"></span>
+                  </div>
                 </div>
+
+                <!-- Hamburger Nav Btn -->
+                <div
+                  class="nav-btn navSidebar-button"
+                  title="Quick Navigation & Contact"
+                  aria-label="Toggle Navigation Menu"
+                >
+                  <span class="hamburger-icon-wrapper">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                  </span>
+                </div>
+              </div>
+              <!-- End Outer Box -->
             </div>
+          </div>
         </div>
-        
+        <!-- End Header Lower -->
+
+        <!-- Sticky Header  -->
+        <div class="sticky-header">
+          <div class="auto-container">
+            <div
+              class="inner-container d-flex justify-content-between align-items-center"
+            >
+              <!-- Logo -->
+              <div class="logo">
+                <a href="index.html" title=""
+                  ><img src="images/logo-small.png" alt="" title=""
+                /></a>
+              </div>
+
+              <div>
+                <!-- Main Menu -->
+                <nav class="main-menu">
+                  <!--Keep This Empty / Menu will come through Javascript-->
+                </nav>
+                <!-- Main Menu End-->
+
+                <!-- Mobile Navigation Toggler -->
+                <div class="mobile-nav-toggler" aria-label="Toggle Mobile Menu">
+                  <span class="mobile-hamburger-icon"
+                    ><span></span><span></span><span></span
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Sticky Menu -->
+
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+          <div class="menu-backdrop"></div>
+          <div class="close-btn">
+            <span class="icon flaticon-multiply"></span>
+          </div>
+          <nav class="menu-box">
+            <div class="nav-logo">
+              <a href="index.html"
+                ><img
+                  src="images/mobile-logo.png"
+                  alt="Prashanti Forex"
+                  title=""
+              /></a>
+            </div>
+            <!-- Search -->
+            <div class="search-box">
+              <form method="post" action="contact.html">
+                <div class="form-group">
+                  <input
+                    type="search"
+                    name="search-field"
+                    value=""
+                    placeholder="SEARCH HERE"
+                    required
+                  />
+                  <button type="submit">
+                    <span class="icon flaticon-search-1"></span>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="menu-outer">
+              <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+            </div>
+          </nav>
+        </div>
+        <!-- End Mobile Menu -->
+      </header>
+      <!-- HEADER:END -->
+
+      <!-- Page Title -->
+      <section class="page-title">
+        <div class="auto-container">
+          <div class="content">
+            <h2>Treasury Blog &amp; Insights</h2>
+          </div>
+        </div>
+      </section>
+      <!-- End Page Title -->
+
+      <!-- Sidebar Page Container -->
+      <div class="sidebar-page-container">
+        <div class="auto-container">
+          <div class="row clearfix">
+            <!-- Content Side (Cards Grid) -->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+              <div class="blog-classic">
+                <!-- Dynamic WordPress Posts Grid -->
+                <div class="wp-blog-grid" id="wp-posts-grid">
+                  <div class="wp-state-box">
+                    <div class="wp-spinner"></div>
+                    <h5
+                      style="
+                        color: #05085e;
+                        font-weight: 700;
+                        margin-bottom: 6px;
+                      "
+                    >
+                      Loading Latest Articles...
+                    </h5>
+                    <p style="color: #64748b; font-size: 14px; margin: 0">
+                      Connecting to Prashanti Academy Treasury Desk
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Dynamic Pagination -->
+                <ul
+                  class="styled-pagination clearfix"
+                  id="wp-pagination-list"
+                ></ul>
+              </div>
+            </div>
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+              <aside class="sidebar sticky-top">
+                <!-- Search Widget -->
+                <div class="sidebar-widget search-box">
+                  <div class="sidebar-title">
+                    <h4>Search Articles</h4>
+                  </div>
+                  <form
+                    id="wp-search-form"
+                    onsubmit="
+                      event.preventDefault();
+                      handleBlogSearch();
+                    "
+                  >
+                    <div class="form-group">
+                      <input
+                        type="search"
+                        id="wp-search-input"
+                        name="search"
+                        placeholder="Type keyword & press enter..."
+                        required
+                      />
+                      <button type="submit">
+                        <span class="icon fa fa-search"></span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Dynamic Categories Widget -->
+                <div class="sidebar-widget categories-widget">
+                  <div class="widget-content">
+                    <div class="sidebar-title">
+                      <h4>Categories</h4>
+                    </div>
+                    <ul class="blog-cat" id="wp-categories-list">
+                      <li>
+                        <a
+                          href="javascript:void(0)"
+                          onclick="filterByCategory(null)"
+                          class="active"
+                          >All Topics</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Treasury Services Widget -->
+                <div class="sidebar-widget pages-widget">
+                  <div class="widget-content">
+                    <div class="sidebar-title">
+                      <h4>Treasury Services</h4>
+                    </div>
+                    <ul class="pages-list">
+                      <li>
+                        <a href="service-fractional-treasury.html"
+                          >Fractional Treasury</a
+                        >
+                      </li>
+                      <li>
+                        <a href="service-currency-risk.html"
+                          >Currency Risk Management</a
+                        >
+                      </li>
+                      <li>
+                        <a href="service-trade-finance.html"
+                          >Trade Finance Optimisation</a
+                        >
+                      </li>
+                      <li>
+                        <a href="service-liquidity-management.html"
+                          >Liquidity Management</a
+                        >
+                      </li>
+                      <li>
+                        <a href="service-treasury-advisory.html"
+                          >Treasury Advisory</a
+                        >
+                      </li>
+                      <li>
+                        <a href="service-corporate-training.html"
+                          >Corporate FX Training</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <!-- Recent Posts Widget -->
+                <div class="sidebar-widget post-widget">
+                  <div class="widget-content">
+                    <div class="sidebar-title">
+                      <h4>Recent Posts</h4>
+                    </div>
+                    <div id="wp-recent-posts-list">
+                      <p style="font-size: 13px; color: #888">
+                        Loading recent articles...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER:START -->
+      <!-- Footer Style Two / Style Two -->
+      <footer class="footer-style-two style-two">
+        <div class="auto-container">
+          <!-- Widgets Section -->
+          <div class="widgets-section">
+            <div class="row clearfix">
+              <!-- Column -->
+              <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                <div class="row clearfix">
+                  <!-- Footer Column -->
+                  <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                    <div class="footer-widget logo-widget">
+                      <div class="logo">
+                        <a href="index.html"
+                          ><img
+                            src="images/logo-white.png"
+                            alt="Prashanti Forex"
+                        /></a>
+                      </div>
+                      <div class="text">
+                        Your dedicated outsourced treasury department. We help
+                        exporters and importers manage currency risk, optimise
+                        trade finance costs, and strengthen liquidity.
+                      </div>
+                      <!-- Social Box -->
+                      <ul class="social-box">
+                        <li>
+                          <a
+                            target="_blank"
+                            href="https://www.facebook.com/PrashantiForex/"
+                            class="fa fa-facebook-f"
+                          ></a>
+                        </li>
+                        <li>
+                          <a
+                            target="_blank"
+                            href="https://www.linkedin.com/company/prashanti-forex/"
+                            class="fa fa-linkedin"
+                          ></a>
+                        </li>
+                        <li>
+                          <a
+                            target="_blank"
+                            href="https://www.instagram.com/prashanti_forex"
+                            class="fa fa-instagram"
+                          ></a>
+                        </li>
+                        <li>
+                          <a
+                            target="_blank"
+                            href="https://www.youtube.com/@prashantiforex"
+                            class="fa fa-youtube-play"
+                          ></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Footer Column -->
+                  <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                    <div class="footer-widget links-widget">
+                      <h6>Quick Links</h6>
+                      <ul class="page-list">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">All Services</a></li>
+                        <li><a href="team.html">Leadership</a></li>
+                        <!-- <li><a href="price.html">Engagement Models</a></li> -->
+                        <li><a href="contact.html">Contact Us</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Column -->
+              <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                <div class="row clearfix">
+                  <!-- Footer Column -->
+                  <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                    <div class="footer-widget links-widget">
+                      <h6>Treasury Practice</h6>
+                      <ul class="page-list">
+                        <li>
+                          <a href="service-fractional-treasury.html"
+                            >Fractional Treasury</a
+                          >
+                        </li>
+                        <li>
+                          <a href="service-currency-risk.html"
+                            >Currency Risk Management</a
+                          >
+                        </li>
+                        <li>
+                          <a href="service-trade-finance.html"
+                            >Trade Finance Optimisation</a
+                          >
+                        </li>
+                        <li>
+                          <a href="service-liquidity-management.html"
+                            >Liquidity Management</a
+                          >
+                        </li>
+                        <li>
+                          <a href="service-treasury-advisory.html"
+                            >Treasury Advisory</a
+                          >
+                        </li>
+                        <li>
+                          <a href="service-corporate-training.html"
+                            >Corporate Market Training</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <!-- Footer Column -->
+                  <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                    <div class="footer-widget newslatter-widget">
+                      <h6>Subscribe Newsletter</h6>
+                      <div class="text">
+                        Subscribe to our newsletter for periodic market
+                        perspectives on foreign exchange, trade finance, and
+                        corporate liquidity.
+                      </div>
+                      <!-- Subscribe Form -->
+                      <div class="subscribe-form-two">
+                        <form method="post" action="contact.html">
+                          <div class="form-group">
+                            <input
+                              type="email"
+                              name="email"
+                              value=""
+                              placeholder="Enter your business email"
+                              required
+                            />
+                            <button type="submit" class="submit-btn">
+                              <span class="icon flaticon-send"></span>
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer Bottom -->
+          <div class="footer-bottom">
+            <div class="row clearfix">
+              <!-- Column -->
+              <div class="column col-lg-6 col-md-12 col-sm-12">
+                <div class="copyright">
+                  &copy; 2026 <a href="index.html">Prashanti Forex</a>. All
+                  Rights Reserved. Fractional Treasury Solutions.
+                </div>
+              </div>
+              <!-- Column -->
+              <div class="column col-lg-6 col-md-12 col-sm-12">
+                <ul class="pages-nav">
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="terms.html">Terms &amp; Conditions</a></li>
+                  <li><a href="disclaimer.html">Treasury Disclaimer</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- FOOTER:END -->
     </div>
-</footer>
-<!-- FOOTER:END -->
-	<!-- End Footer Style Two / Style Two -->
-	
-</div>
 
-<!-- Search Popup -->
-<div class="search-popup">
-	<div class="color-layer"></div>
-	<button class="close-search"><span class="fa fa-arrow-up"></span></button>
-	<form method="post" action="blog.html">
-		<div class="form-group">
-			<input type="search" name="search-field" value="" placeholder="Search Here" required="">
-			<button type="submit"><i class="fa fa-search"></i></button>
-		</div>
-	</form>
-</div>
-<!-- End Search Popup -->
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/magnific-popup.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/tilt.jquery.min.js"></script>
+    <script src="js/jquery.paroller.min.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/odometer.js"></script>
+    <script src="js/mixitup.js"></script>
+    <script src="js/backToTop.js"></script>
+    <script src="js/cursor-script.js"></script>
+    <script src="js/nav-tool.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/color-settings.js"></script>
 
-<!-- scrollToTop start -->
-<div class="progress-wrap active-progress">
-	<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-	<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919px, 307.919px; stroke-dashoffset: 228.265px;"></path>
-	</svg>
-</div>
-<!-- scrollToTop end -->
+    <script>
+      const WP_API_ROOT = "https://blogs.prashantiforex.co.in/wp-json/wp/v2";
+      const POSTS_PER_PAGE = 6;
+      let currentActivePage = 1;
+      let selectedCategoryId = null;
+      let activeSearchQuery = "";
 
-<script src="js/jquery.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/magnific-popup.min.js"></script>
-<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="js/appear.js"></script>
-<script src="js/parallax.min.js"></script>
-<script src="js/tilt.jquery.min.js"></script>
-<script src="js/jquery.paroller.min.js"></script>
-<script src="js/owl.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/odometer.js"></script>
-<script src="js/mixitup.js"></script>
-<script src="js/backToTop.js"></script>
-<script src="js/cursor-script.js"></script>
-<script src="js/nav-tool.js"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/script.js"></script>
-<script src="js/TweenMax.min.js"></script>
-<script src="js/color-settings.js"></script>
+      function stripHtml(html) {
+        const tmp = document.createElement("DIV");
+        tmp.innerHTML = html || "";
+        return tmp.textContent || tmp.innerText || "";
+      }
 
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+      function getPostFeaturedImage(post) {
+        return (
+          post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+          post.featured_image_url ||
+          "images/resource/about-2.jpg"
+        );
+      }
 
-</body>
+      async function loadWordPressBlogPosts(page = 1) {
+        currentActivePage = page;
+        const grid = document.getElementById("wp-posts-grid");
+        const pagination = document.getElementById("wp-pagination-list");
+
+        grid.innerHTML = `
+            <div class="wp-state-box">
+                <div class="wp-spinner"></div>
+                <h5 style="color: #05085E; font-weight: 700; margin-bottom: 6px;">Loading Articles...</h5>
+                <p style="color: #64748B; font-size: 14px; margin: 0;">Fetching from Treasury Desk</p>
+            </div>
+        `;
+
+        try {
+          let url = `${WP_API_ROOT}/posts?_embed&per_page=${POSTS_PER_PAGE}&page=${page}`;
+          if (selectedCategoryId) {
+            url += `&categories=${selectedCategoryId}`;
+          }
+          if (activeSearchQuery) {
+            url += `&search=${encodeURIComponent(activeSearchQuery)}`;
+          }
+
+          const response = await fetch(url);
+          if (!response.ok) throw new Error("Network response was not ok");
+
+          const totalPages = parseInt(
+            response.headers.get("X-WP-TotalPages") || "1",
+            10,
+          );
+          const posts = await response.json();
+
+          if (!posts || posts.length === 0) {
+            grid.innerHTML = `
+                    <div class="wp-state-box">
+                        <h4 style="color: #05085E; font-weight: 700; margin-bottom: 8px;">No Articles Found</h4>
+                        <p style="color: #64748B; font-size: 14px; margin-bottom: 16px;">Try adjusting your search terms or category filter.</p>
+                        <button onclick="resetFilters()" class="theme-btn btn-style-two" style="padding: 8px 22px; font-size: 13px;">
+                            <span class="btn-wrap"><span class="text-one">View All Articles</span><span class="text-two">View All Articles</span></span>
+                        </button>
+                    </div>
+                `;
+            pagination.innerHTML = "";
+            return;
+          }
+
+          grid.innerHTML = "";
+
+          posts.forEach((post) => {
+            const imageUrl = getPostFeaturedImage(post);
+            const authorName =
+              post._embedded?.author?.[0]?.name || "Prashanti Forex";
+            const categoryName =
+              post._embedded?.["wp:term"]?.[0]?.[0]?.name || "Treasury";
+
+            const formattedDate = new Date(post.date).toLocaleDateString(
+              "en-IN",
+              {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              },
+            );
+
+            const titleText = post.title?.rendered || "Treasury Perspective";
+            const excerptText =
+              stripHtml(post.excerpt?.rendered).slice(0, 135) + "...";
+            const detailUrl = `blogs/${post.slug}`;
+
+            const cardHtml = `
+                    <article class="wp-blog-card">
+                        <a href="${detailUrl}" class="wp-card-thumb-link">
+                            <img src="${imageUrl}" alt="${stripHtml(titleText)}" loading="lazy" onerror="this.src='images/resource/about-2.jpg'">
+                            <span class="wp-card-badge">${categoryName}</span>
+                        </a>
+                        <div class="wp-card-body">
+                            <div class="wp-card-meta">
+                                <span><i class="fa fa-user-circle-o"></i> ${authorName}</span>
+                                <span><i class="fa fa-calendar-o"></i> ${formattedDate}</span>
+                            </div>
+                            <h3 class="wp-card-title">
+                                <a href="${detailUrl}">${titleText}</a>
+                            </h3>
+                            <p class="wp-card-excerpt">${excerptText}</p>
+                            <div class="wp-card-footer">
+                                <a href="${detailUrl}" class="wp-read-more-btn">
+                                    Read Full Article <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+
+            grid.insertAdjacentHTML("beforeend", cardHtml);
+          });
+
+          renderBlogPagination(totalPages, page);
+
+          if (page > 1) {
+            const el = document.querySelector(".blog-classic");
+            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        } catch (err) {
+          console.error("WordPress Blog Fetch Error:", err);
+          grid.innerHTML = `
+                <div class="wp-state-box">
+                    <h5 style="color: #DC2626; font-weight: 700; margin-bottom: 8px;">Unable to load articles</h5>
+                    <p style="color: #64748B; font-size: 14px; margin-bottom: 15px;">Please check internet connection or WordPress API availability.</p>
+                    <button onclick="loadWordPressBlogPosts(${page})" class="theme-btn btn-style-two" style="padding: 6px 18px; font-size: 12px;">
+                        <span class="btn-wrap"><span class="text-one">Retry</span><span class="text-two">Retry</span></span>
+                    </button>
+                </div>
+            `;
+          pagination.innerHTML = "";
+        }
+      }
+
+      function renderBlogPagination(totalPages, activePage) {
+        const pagination = document.getElementById("wp-pagination-list");
+        if (totalPages <= 1) {
+          pagination.innerHTML = "";
+          return;
+        }
+
+        let html = "";
+        if (activePage > 1) {
+          html += `<li class="prev"><a href="javascript:void(0)" onclick="loadWordPressBlogPosts(${activePage - 1})"><span class="flaticon-left-arrow"></span></a></li>`;
+        }
+
+        for (let i = 1; i <= totalPages; i++) {
+          html += `<li><a href="javascript:void(0)" class="${i === activePage ? "active" : ""}" onclick="loadWordPressBlogPosts(${i})">${i}</a></li>`;
+        }
+
+        if (activePage < totalPages) {
+          html += `<li class="next"><a href="javascript:void(0)" onclick="loadWordPressBlogPosts(${activePage + 1})"><span class="flaticon-right-arrow"></span></a></li>`;
+        }
+
+        pagination.innerHTML = html;
+      }
+
+      async function loadWordPressCategories() {
+        const catList = document.getElementById("wp-categories-list");
+        try {
+          const res = await fetch(
+            `${WP_API_ROOT}/categories?per_page=10&hide_empty=true`,
+          );
+          if (!res.ok) return;
+          const categories = await res.json();
+
+          if (categories && categories.length > 0) {
+            let catHtml = `<li><a href="javascript:void(0)" onclick="filterByCategory(null)" id="cat-all" class="${!selectedCategoryId ? "active" : ""}">All Topics</a></li>`;
+            categories.forEach((cat) => {
+              catHtml += `
+                        <li>
+                            <a href="javascript:void(0)" onclick="filterByCategory(${cat.id})" id="cat-${cat.id}">
+                                ${cat.name} <span>(${cat.count})</span>
+                            </a>
+                        </li>
+                    `;
+            });
+            catList.innerHTML = catHtml;
+          }
+        } catch (e) {
+          console.warn("Categories fetch error:", e);
+        }
+      }
+
+      async function loadWordPressRecentPosts() {
+        const recentBox = document.getElementById("wp-recent-posts-list");
+        try {
+          const res = await fetch(`${WP_API_ROOT}/posts?_embed&per_page=4`);
+          if (!res.ok) return;
+          const recentPosts = await res.json();
+
+          if (recentPosts && recentPosts.length > 0) {
+            let html = "";
+            recentPosts.forEach((p) => {
+              const thumb = getPostFeaturedImage(p);
+              const pDate = new Date(p.date).toLocaleDateString("en-IN", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              });
+              const pTitle = p.title?.rendered || "Treasury Article";
+              const pUrl = `blogs/${p.slug}`;
+
+              html += `
+                        <div class="post">
+                            <div class="thumb">
+                                <a href="${pUrl}"><img src="${thumb}" alt="${stripHtml(pTitle)}" style="width: 70px; height: 70px; object-fit: cover; border-radius: 8px;"></a>
+                            </div>
+                            <div class="title">${pDate}</div>
+                            <h6><a href="${pUrl}">${pTitle}</a></h6>
+                        </div>
+                    `;
+            });
+            recentBox.innerHTML = html;
+          }
+        } catch (e) {
+          console.warn("Recent posts fetch error:", e);
+        }
+      }
+
+      function filterByCategory(catId) {
+        selectedCategoryId = catId;
+        activeSearchQuery = "";
+        const searchInput = document.getElementById("wp-search-input");
+        if (searchInput) searchInput.value = "";
+
+        document
+          .querySelectorAll("#wp-categories-list a")
+          .forEach((a) => a.classList.remove("active"));
+        const target = catId
+          ? document.getElementById(`cat-${catId}`)
+          : document.getElementById("cat-all");
+        if (target) target.classList.add("active");
+
+        loadWordPressBlogPosts(1);
+      }
+
+      function handleBlogSearch() {
+        const input = document.getElementById("wp-search-input");
+        if (!input) return;
+        activeSearchQuery = input.value.trim();
+        loadWordPressBlogPosts(1);
+      }
+
+      function resetFilters() {
+        selectedCategoryId = null;
+        activeSearchQuery = "";
+        const searchInput = document.getElementById("wp-search-input");
+        if (searchInput) searchInput.value = "";
+        document
+          .querySelectorAll("#wp-categories-list a")
+          .forEach((a) => a.classList.remove("active"));
+        const catAll = document.getElementById("cat-all");
+        if (catAll) catAll.classList.add("active");
+        loadWordPressBlogPosts(1);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadWordPressBlogPosts(1);
+        loadWordPressCategories();
+        loadWordPressRecentPosts();
+      });
+    </script>
+  </body>
 </html>
