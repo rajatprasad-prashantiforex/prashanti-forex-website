@@ -666,24 +666,22 @@
     }
 
     function resolveArticleIdentifier() {
-        // 1. Query parameter (?slug=xyz or ?id=123)
-        const params = new URLSearchParams(window.location.search);
-        const querySlug = params.get("slug");
-        const queryId = params.get("id");
+    const params = new URLSearchParams(window.location.search);
+    const querySlug = params.get("slug");
+    const queryId = params.get("id");
 
-        if (querySlug) return { type: 'slug', value: querySlug };
-        if (queryId) return { type: 'id', value: queryId };
+    if (querySlug) return { type: 'slug', value: querySlug };
+    if (queryId) return { type: 'id', value: queryId };
 
-        // 2. SEO Path routing (/blogs/{slug})
-        const pathParts = window.location.pathname.split('/').filter(Boolean);
-        const blogsIdx = pathParts.indexOf('blogs');
-        if (blogsIdx !== -1 && pathParts[blogsIdx + 1]) {
-            const rawSlug = pathParts[blogsIdx + 1].replace(/\.html$/i, '');
-            return { type: 'slug', value: rawSlug };
-        }
-
-        return null;
+    const pathParts = window.location.pathname.split('/').filter(Boolean);
+    const blogIdx = pathParts.indexOf('blog');
+    if (blogIdx !== -1 && pathParts[blogIdx + 1]) {
+        const rawSlug = pathParts[blogIdx + 1].replace(/\.html$/i, '');
+        return { type: 'slug', value: rawSlug };
     }
+
+    return null;
+}
 
     async function loadSingleWordPressPost() {
         const identifier = resolveArticleIdentifier();

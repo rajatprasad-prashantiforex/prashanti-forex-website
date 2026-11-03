@@ -875,7 +875,7 @@
             const titleText = post.title?.rendered || "Treasury Perspective";
             const excerptText =
               stripHtml(post.excerpt?.rendered).slice(0, 135) + "...";
-            const detailUrl = `blogs/${post.slug}`;
+            const detailUrl = `blog/${post.slug}`;
 
             const cardHtml = `
                     <article class="wp-blog-card">
@@ -992,7 +992,7 @@
                 year: "numeric",
               });
               const pTitle = p.title?.rendered || "Treasury Article";
-              const pUrl = `blogs/${p.slug}`;
+              const pUrl = `blog/${p.slug}`;
 
               html += `
                         <div class="post">
