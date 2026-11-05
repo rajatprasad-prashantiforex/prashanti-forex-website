@@ -21,10 +21,9 @@
 <!-- Prashanti Forex Premium Overrides -->
 <link href="css/prashanti-overrides.css" rel="stylesheet">
 
-
 <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 <link rel="icon" href="images/favicon.png" type="image/x-icon">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -199,9 +198,7 @@
 								</div>
 								<div class="content-box">
 									<h5>About Prashanti Forex</h5>
-									<p class="text">We become your outsourced treasury department, helping exporters and
-										importers manage currency risk, optimise finance costs, and strengthen liquidity
-										with institutional rigor.</p>
+									<p class="text">We become your outsourced treasury department, helping exporters and importers manage currency risk, optimise finance costs, and strengthen liquidity with institutional rigor.</p>
 									<a href="contact.html" class="theme-btn btn-style-two">
 										<span class="btn-wrap">
 											<span class="text-one">Talk to an Expert</span>
@@ -212,8 +209,7 @@
 								<div class="contact-info">
 									<h5>Corporate Office</h5>
 									<ul class="list-style-one">
-										<li><span class="icon fa fa-location-arrow"></span>Yashvasin CHS, Plot 38,
-											Sector 27, Kharghar, Navi Mumbai 410210</li>
+										<li><span class="icon fa fa-location-arrow"></span>Yashvasin CHS, Plot 38, Sector 27, Kharghar, Navi Mumbai 410210</li>
 										<li><span class="icon fa fa-phone"></span>+91 99300 93014</li>
 										<li><span class="icon fa fa-envelope"></span>rajat.prasad@prashantiforex.co.in</li>
 										<li><span class="icon fa fa-clock-o"></span>Mon - Fri: 09:00 AM - 06:00 PM</li>
@@ -256,7 +252,7 @@
 
 				<!-- Default Form -->
 				<div class="default-form">
-					<form method="post" action="sendemail.php" id="consultation-form">
+					<form id="consultation-form">
 						<div class="form-group">
 							<input type="text" name="username" placeholder="Full Name *" required>
 						</div>
@@ -293,8 +289,11 @@
 							</select>
 						</div>
 
+						<!-- Form Status Notification Box -->
+						<div id="form-status-msg" style="display:none; margin-bottom: 18px; padding: 14px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; text-align: center;"></div>
+
 						<div class="form-group">
-							<button type="submit" class="theme-btn btn-style-two w-100">
+							<button type="submit" id="consultation-submit-btn" class="theme-btn btn-style-two w-100">
 								<span class="btn-wrap">
 									<span class="text-one">Submit Consultation Request</span>
 									<span class="text-two">Submit Consultation Request</span>
@@ -524,14 +523,84 @@
 <script src="js/backToTop.js"></script>
 <script src="js/cursor-script.js"></script>
 <script src="js/nav-tool.js"></script>
-<script src="js/validate.js"></script>
 <script src="js/jquery-ui.js"></script>
 <script src="js/script.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/color-settings.js"></script>
 
-<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+<script>
+    const GOOGLE_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxb-vmKUXD7anM6XA6z13ykaGnXm7KVNwMbAXLRSPhzKHMfGd6BUCgIz00Y3nqI4ZSy3Q/exec";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const leadForm = document.getElementById("consultation-form");
+        const statusMsg = document.getElementById("form-status-msg");
+        const submitBtn = document.getElementById("consultation-submit-btn");
+
+        if (!leadForm) return;
+
+        leadForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // Status message reset
+            if (statusMsg) {
+                statusMsg.style.display = "none";
+                statusMsg.className = "";
+            }
+
+            // Button loading state
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="btn-wrap"><span class="text-one">Submitting...</span><span class="text-two">Submitting...</span></span>';
+
+            const payload = {
+                username: leadForm.querySelector('[name="username"]')?.value.trim() || '',
+                phone: leadForm.querySelector('[name="phone"]')?.value.trim() || '',
+                email: leadForm.querySelector('[name="email"]')?.value.trim() || '',
+                company: leadForm.querySelector('[name="company"]')?.value.trim() || '',
+                designation: leadForm.querySelector('[name="designation"]')?.value || '',
+                turnover: leadForm.querySelector('[name="turnover"]')?.value || ''
+            };
+
+            try {
+                await fetch(GOOGLE_SCRIPT_WEBAPP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Apps Script redirect ko seamlessly handle karta hai
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                // Success Message display
+                if (statusMsg) {
+                    statusMsg.style.display = "block";
+                    statusMsg.style.background = "#ECFDF5";
+                    statusMsg.style.color = "#065F46";
+                    statusMsg.style.border = "1px solid #A7F3D0";
+                    statusMsg.innerHTML = '<i class="fa fa-check-circle"></i> Thank you! Your consultation request has been submitted successfully.';
+
+					setTimeout(() => {
+        statusMsg.style.display = "none";
+    }, 5000);
+                }
+                leadForm.reset();
+
+            } catch (err) {
+                console.error("Google Sheet submission error:", err);
+                if (statusMsg) {
+                    statusMsg.style.display = "block";
+                    statusMsg.style.background = "#FEF2F2";
+                    statusMsg.style.color = "#991B1B";
+                    statusMsg.style.border = "1px solid #FECACA";
+                    statusMsg.innerHTML = '<i class="fa fa-exclamation-triangle"></i> Submission failed. Please try again or reach out to our treasury desk directly.';
+                }
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHtml;
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

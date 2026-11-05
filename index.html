@@ -488,59 +488,62 @@
 							</div>
 
 							<!-- Default Form -->
-							<div class="default-form">
+<div class="default-form">
 
-								<form method="post" action="contact.html">
+	<form id="home-consultation-form">
 
-									<div class="form-group">
-										<input type="text" name="username" placeholder="Full Name *" required>
-									</div>
+		<div class="form-group">
+			<input type="text" name="username" placeholder="Full Name *" required>
+		</div>
 
-									<div class="form-group">
-										<input type="text" name="phone" placeholder="Contact Phone Number *" required>
-									</div>
+		<div class="form-group">
+			<input type="text" name="phone" placeholder="Contact Phone Number *" required>
+		</div>
 
-									<div class="form-group">
-										<input type="email" name="email" placeholder="Business Email *" required>
-									</div>
+		<div class="form-group">
+			<input type="email" name="email" placeholder="Business Email *" required>
+		</div>
 
-									<div class="form-group">
-										<input type="text" name="company" placeholder="Company Name *" required>
-									</div>
+		<div class="form-group">
+			<input type="text" name="company" placeholder="Company Name *" required>
+		</div>
 
-									<div class="form-group">
-										<select name="designation" required>
-											<option value="" disabled selected>Designation / Role *</option>
-											<option value="Owner / Promoter / MD">Owner / Promoter / Managing Director</option>
-											<option value="CFO / Finance Director">CFO / Finance Director</option>
-											<option value="Treasury / Finance Manager">Treasury / Finance Manager</option>
-											<option value="Staff / Finance Executive">Staff / Finance Executive</option>
-										</select>
-									</div>
+		<div class="form-group">
+			<select name="designation" required>
+				<option value="" disabled selected>Designation / Role *</option>
+				<option value="Owner / Promoter / MD">Owner / Promoter / Managing Director</option>
+				<option value="CFO / Finance Director">CFO / Finance Director</option>
+				<option value="Treasury / Finance Manager">Treasury / Finance Manager</option>
+				<option value="Staff / Finance Executive">Staff / Finance Executive</option>
+			</select>
+		</div>
 
-									<div class="form-group">
-										<select name="turnover" required>
-											<option value="" disabled selected>Annual Business Turnover *</option>
-											<option value="Less than 100 Cr">Less than ₹100 Cr</option>
-											<option value="100 to 500 Cr">₹100 Cr to ₹500 Cr</option>
-											<option value="500 to 1000 Cr">₹500 Cr to ₹1000 Cr</option>
-											<option value="Above 1000 Cr">Above ₹1000 Cr</option>
-										</select>
-									</div>
+		<div class="form-group">
+			<select name="turnover" required>
+				<option value="" disabled selected>Annual Business Turnover *</option>
+				<option value="Less than 100 Cr">Less than ₹100 Cr</option>
+				<option value="100 to 500 Cr">₹100 Cr to ₹500 Cr</option>
+				<option value="500 to 1000 Cr">₹500 Cr to ₹1000 Cr</option>
+				<option value="Above 1000 Cr">Above ₹1000 Cr</option>
+			</select>
+		</div>
 
-									<div class="form-group">
-										<button type="submit" class="theme-btn btn-style-two w-100">
-											<span class="btn-wrap">
-												<span class="text-one">Submit Consultation Request</span>
-												<span class="text-two">Submit Consultation Request</span>
-											</span>
-										</button>
-									</div>
+		<!-- Status Notification Box -->
+		<div id="home-form-status-msg" style="display:none; margin-bottom: 18px; padding: 14px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; text-align: center;"></div>
 
-								</form>
+		<div class="form-group">
+			<button type="submit" id="home-consultation-submit-btn" class="theme-btn btn-style-two w-100">
+				<span class="btn-wrap">
+					<span class="text-one">Submit Consultation Request</span>
+					<span class="text-two">Submit Consultation Request</span>
+				</span>
+			</button>
+		</div>
 
-							</div>
-							<!-- End Default Form -->
+	</form>
+
+</div>
+<!-- End Default Form -->
 
 						</div>
 					</div>
@@ -1048,6 +1051,84 @@
 	<script src="js/jquery-ui.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/color-settings.js"></script>
+
+<script>
+    const GOOGLE_SCRIPT_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxb-vmKUXD7anM6XA6z13ykaGnXm7KVNwMbAXLRSPhzKHMfGd6BUCgIz00Y3nqI4ZSy3Q/exec";
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const homeForm = document.getElementById("home-consultation-form");
+        const statusMsg = document.getElementById("home-form-status-msg");
+        const submitBtn = document.getElementById("home-consultation-submit-btn");
+
+        if (!homeForm) return;
+
+        homeForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            // Status message reset
+            if (statusMsg) {
+                statusMsg.style.display = "none";
+                statusMsg.className = "";
+            }
+
+            // Button loading state
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="btn-wrap"><span class="text-one">Submitting...</span><span class="text-two">Submitting...</span></span>';
+
+            const payload = {
+                username: homeForm.querySelector('[name="username"]')?.value.trim() || '',
+                phone: homeForm.querySelector('[name="phone"]')?.value.trim() || '',
+                email: homeForm.querySelector('[name="email"]')?.value.trim() || '',
+                company: homeForm.querySelector('[name="company"]')?.value.trim() || '',
+                designation: homeForm.querySelector('[name="designation"]')?.value || '',
+                turnover: homeForm.querySelector('[name="turnover"]')?.value || ''
+            };
+
+            try {
+                await fetch(GOOGLE_SCRIPT_WEBAPP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                // Success Message display
+                if (statusMsg) {
+                    statusMsg.style.display = "block";
+                    statusMsg.style.background = "#ECFDF5";
+                    statusMsg.style.color = "#065F46";
+                    statusMsg.style.border = "1px solid #A7F3D0";
+                    statusMsg.innerHTML = '<i class="fa fa-check-circle"></i> Thank you! Your consultation request has been submitted successfully.';
+
+                    setTimeout(() => {
+                        statusMsg.style.display = "none";
+                    }, 5000);
+                }
+                homeForm.reset();
+
+            } catch (err) {
+                console.error("Home form submission error:", err);
+                if (statusMsg) {
+                    statusMsg.style.display = "block";
+                    statusMsg.style.background = "#FEF2F2";
+                    statusMsg.style.color = "#991B1B";
+                    statusMsg.style.border = "1px solid #FECACA";
+                    statusMsg.innerHTML = '<i class="fa fa-exclamation-triangle"></i> Submission failed. Please try again or reach out to our desk directly.';
+
+                    setTimeout(() => {
+                        statusMsg.style.display = "none";
+                    }, 5000);
+                }
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnHtml;
+            }
+        });
+    });
+</script>
 
 	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
 	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
