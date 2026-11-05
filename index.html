@@ -733,91 +733,12 @@
 							</div>
 						</div>
 					</div>
-					<!-- Blocks Column -->
 					<div class="blocks-column col-lg-8 col-md-12 col-sm-12">
-						<div class="inner-column">
-
-							<!-- Insight Card 1 -->
-							<div class="news-block">
-								<div class="inner-box d-flex justify-content-between align-items-center">
-									<!-- Info Box -->
-									<div class="news-info-box">
-										<div class="insight-emblem">
-											<i class="fa fa-line-chart"></i>
-										</div>
-										<div class="insight-cat-tag">Currency Risk</div>
-										<div class="insight-sub-tag">Market Perspective</div>
-									</div>
-
-									<!-- Middle Content -->
-									<div class="middle-content">
-										<h4><a href="news-detail.html">How Currency Movements Can Affect Export
-												Profitability</a></h4>
-										<div class="text">Understand how foreign exchange volatility influences business
-											margins and practical steps to insulate your bottom line.</div>
-									</div>
-
-									<div class="read-more">
-										<a class="more-service" href="news-detail.html">Read Article &rarr;</a>
-									</div>
-
-								</div>
+						<div class="inner-column" id="home-dynamic-blogs">
+							<!-- Loading placeholder -->
+							<div style="text-align: center; padding: 40px; color: #64748B;">
+								<p style="font-size: 15px; margin: 0;"><i class="fa fa-spinner fa-spin"></i> Loading latest treasury perspectives...</p>
 							</div>
-
-							<!-- Insight Card 2 -->
-							<div class="news-block">
-								<div class="inner-box d-flex justify-content-between align-items-center">
-									<!-- Info Box -->
-									<div class="news-info-box">
-										<div class="insight-emblem">
-											<i class="fa fa-globe"></i>
-										</div>
-										<div class="insight-cat-tag">Trade Finance</div>
-										<div class="insight-sub-tag">Cost Optimisation</div>
-									</div>
-
-									<!-- Middle Content -->
-									<div class="middle-content">
-										<h4><a href="news-detail.html">Ways Businesses Can Improve the Cost of Export
-												&amp; Import Finance</a></h4>
-										<div class="text">Explore practical considerations for improving finance
-											efficiency, banking terms, and cycle times across global trade.</div>
-									</div>
-
-									<div class="read-more">
-										<a class="more-service" href="news-detail.html">Read Article &rarr;</a>
-									</div>
-
-								</div>
-							</div>
-
-							<!-- Insight Card 3 -->
-							<div class="news-block">
-								<div class="inner-box d-flex justify-content-between align-items-center">
-									<!-- Info Box -->
-									<div class="news-info-box">
-										<div class="insight-emblem">
-											<i class="fa fa-pie-chart"></i>
-										</div>
-										<div class="insight-cat-tag">Liquidity</div>
-										<div class="insight-sub-tag">Working Capital</div>
-									</div>
-
-									<!-- Middle Content -->
-									<div class="middle-content">
-										<h4><a href="news-detail.html">Why Liquidity Management Matters as Your Business
-												Scales</a></h4>
-										<div class="text">Better cash flow visibility and working capital forecasting
-											support stronger financial resilience and decision making.</div>
-									</div>
-
-									<div class="read-more">
-										<a class="more-service" href="news-detail.html">Read Article &rarr;</a>
-									</div>
-
-								</div>
-							</div>
-
 						</div>
 					</div>
 				</div>
@@ -1128,6 +1049,89 @@
             }
         });
     });
+</script>
+
+<script>
+    const HOME_WP_API = "https://blogs.prashantiforex.co.in/wp-json/wp/v2";
+
+    function cleanHtmlText(html) {
+        const temp = document.createElement("DIV");
+        temp.innerHTML = html || "";
+        return temp.textContent || temp.innerText || "";
+    }
+
+    const postThemeIcons = [
+        { icon: "fa-line-chart", tag: "Currency Risk", subTag: "Market Perspective" },
+        { icon: "fa-globe", tag: "Trade Finance", subTag: "Cost Optimisation" },
+        { icon: "fa-pie-chart", tag: "Liquidity", subTag: "Working Capital" }
+    ];
+
+    async function loadLatestHomeArticles() {
+        const container = document.getElementById("home-dynamic-blogs");
+        if (!container) return;
+
+        try {
+            const response = await fetch(`${HOME_WP_API}/posts?_embed&per_page=3`);
+            if (!response.ok) throw new Error("Articles fetch error");
+
+            const posts = await response.json();
+            if (!posts || posts.length === 0) {
+                container.innerHTML = `<p style="color: #64748B; font-size: 14px;">No articles published yet.</p>`;
+                return;
+            }
+
+            let cardsHtml = "";
+            posts.forEach((post, index) => {
+                const title = cleanHtmlText(post.title?.rendered || "Treasury Perspective");
+                
+                let excerpt = cleanHtmlText(post.excerpt?.rendered || "");
+                if (excerpt.length > 120) {
+                    excerpt = excerpt.substring(0, 117) + "...";
+                }
+
+                const category = post._embedded?.['wp:term']?.[0]?.[0]?.name;
+                const themeMeta = postThemeIcons[index % postThemeIcons.length];
+                const catTag = category || themeMeta.tag;
+                const subTag = themeMeta.subTag;
+                const iconClass = themeMeta.icon;
+
+                const postUrl = `blog/${post.slug || post.id}`;
+
+                cardsHtml += `
+                    <div class="news-block">
+                        <div class="inner-box d-flex justify-content-between align-items-center">
+                            <!-- Info Box -->
+                            <div class="news-info-box">
+                                <div class="insight-emblem">
+                                    <i class="fa ${iconClass}"></i>
+                                </div>
+                                <div class="insight-cat-tag">${catTag}</div>
+                                <div class="insight-sub-tag">${subTag}</div>
+                            </div>
+
+                            <!-- Middle Content -->
+                            <div class="middle-content">
+                                <h4><a href="${postUrl}">${title}</a></h4>
+                                <div class="text">${excerpt}</div>
+                            </div>
+
+                            <div class="read-more">
+                                <a class="more-service" href="${postUrl}">Read Article &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = cardsHtml;
+
+        } catch (error) {
+            console.error("Home dynamic posts error:", error);
+            container.innerHTML = `<p style="color: #94A3B8; font-size: 14px;">Unable to load recent articles at this moment.</p>`;
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadLatestHomeArticles);
 </script>
 
 	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
