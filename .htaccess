@@ -5,4 +5,4 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-RewriteRule ^blog/([^/]+)/?$ /news-detail.html?slug=$1 [L,NC,QSA]
+RewriteRule ^blog/([^/]+)/?$ /blog-detail.php?slug=$1 [L,NC,QSA]
